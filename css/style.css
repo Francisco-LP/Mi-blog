@@ -1,7 +1,7 @@
 /* Variables */
 
 :root {
-  --primary-color: #00272D;     /* Verde esmeralda (para títulos, enlaces activos) */
+  --primary-color: #229377;     /* Verde esmeralda (para títulos, enlaces activos) */
   --accent-color: #0ea5e9;      /* Azul claro (para botones, hover o detalles) */
   --secondary-color: #4A31F5;   /* Puedes mantenerlo si lo usas puntualmente */
   --tertiary-color: #0f172a;    /* Azul oscuro (secciones, sidebars) */
@@ -13,6 +13,8 @@
 }
 
 /* General Styles */
+
+
 
 html, body {
   margin: 0;
@@ -41,6 +43,63 @@ main {
   padding: 2rem 1rem;
 }
 
+/* Header y nav */
+/*
+.header {
+  border-bottom: 2px solid var(--light-text);
+}
+*/
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.logo {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: rotate(-10deg);
+}
+
+.site-title {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+.cursor {
+  margin-left: 5px;
+  display: inline-block;
+  font-weight: bold;
+  color: var(--primary-color);
+  animation: blink 1s steps(2, start) infinite;
+  font-size: 1.6rem;
+}
+
 .titulo-index {
   text-align: center;
   font-size: 2.5rem;
@@ -61,6 +120,16 @@ main {
   align-items: center;
   max-width: 1200px;
   flex-wrap: wrap;
+}
+
+.intro {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.resaltado {
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .image-block {
@@ -85,10 +154,16 @@ main {
 .text-block h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--primary-color);
+  color: var(--dark-color);
 }
 
 .sobre-mi-text {
+  color: var(--dark-color);
+}
+
+.text-sobremi {
+  font-size: 1.1rem;
+  line-height: 1.6;
   color: var(--dark-color);
 }
 
@@ -218,62 +293,7 @@ main {
     display: none;
 }
 
-/* Header y nav */
-/*
-.header {
-  border-bottom: 2px solid var(--light-text);
-}
-*/
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  flex-wrap: wrap;
-}
 
-.branding {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-
-.logo {
-  height: 60px;
-  transition: transform 0.3s ease;
-}
-
-.logo:hover {
-  transform: rotate(-10deg);
-}
-
-.site-title {
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 1.6rem;
-  text-align: center;
-}
-
-.site-title a {
-  text-decoration: none;
-  color: var(--primary-color);
-}
-
-.cursor {
-  margin-left: 5px;
-  display: inline-block;
-  font-weight: bold;
-  color: var(--primary-color);
-  animation: blink 1s steps(2, start) infinite;
-  font-size: 1.6rem;
-}
 
 @keyframes blink {
     0% { opacity: 1; }
