@@ -30,6 +30,17 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-top: 80px;
+}
+
+header.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--text-color);
+  z-index: 999;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 .container {
@@ -75,21 +86,76 @@ main {
   transition: transform 0.3s ease;
 }
 
+
 .logo:hover {
   transform: rotate(-10deg);
 }
+
+
 
 .site-title {
   display: inline-block;
   white-space: nowrap;
   font-size: 1.6rem;
-  text-align: center;
+  text-align: left;
 }
 
 .site-title a {
   text-decoration: none;
-  color: var(--dark-color);
+  color: var(--primary-color);
 }
+
+.header-title a:hover {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.65rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.menu-title a {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-title a:hover {
+  color: var(--accent-color); 
+  transform: scale(1.05); 
+  text-shadow: 0 2px 6px rgba(14, 165, 233, 0.7); 
+}
+
+/* Ajuste del bloque del título en el menú lateral */
+.side-menu .site-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alínea todo a la izquierda */
+  margin: 0;
+  padding: 0 0 1rem 0; /* Ajusta el padding si lo deseas */
+}
+
+/* Para el enlace del título */
+.side-menu .menu-title a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Ajusta la imagen del logo */
+.side-menu .menu-title img {
+  width: 28px; /* tamaño ajustado */
+  height: auto;
+  display: inline-block;
+  margin: 0; /* Elimina cualquier margen extra */
+}
+
 
 .cursor {
   margin-left: 5px;
@@ -326,7 +392,7 @@ main {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-color);
+  color: var(--dark-color);
 }
 
 /* Menú lateral oculto */
@@ -547,23 +613,23 @@ footer {
     font-size: 1.1rem;
     margin: 0 0.5rem 0 0.5rem;
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--dark-color);
     transition: color 0.3s ease;
   }
 
   .responsive-social-icons a:hover {
-    color: var(--primary-color);
+    color: var(--accent-color);
   }
 
   .logo img {
     padding-left: 1rem;
     height: 30px;
-    transition: transform 0.3s ease;
   }
 
   .logo img:hover {
     transform: rotate(-10deg);
   }
+
 
   .site-title {
     font-size: 1.2rem;
@@ -577,7 +643,7 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: var(--primary-color);
   }
@@ -595,7 +661,8 @@ footer {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--text-color);
+    color: var(--dark-color);
+    padding-left: 4rem;
   }
 
     .social-icons a {
@@ -606,12 +673,54 @@ footer {
       background-color: var(--light-color);
       display: none;
     }
+    /* HERO SECTION */
+  .inicio-section h2 {
+    font-size: 1.8rem;
+    margin: 0.5rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+    padding: 0 1rem;
+  
+  }
+  /* SOBRE MÍ */
+  .sobremi-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-block,
+  .text-block {
+    width: 100%;
+  }
+
+  .kenos-image {
+    max-width: 250px;
+    margin-bottom: 1rem;
+  }
+  
+  /* TARJETAS */
+  .habilitiesCards-container {
+    width: 90%;
+    grid-template-columns: auto; /* Una sola columna */
+    gap: 1rem;
+  }
+
+  .habilitie-card {
+    padding-top: 2rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 1rem;
+    text-align: center;
+  }
 
 
   .footer-content {
     flex-direction: column;
     align-items: center;
-    padding: 0 10px;
   }
 
   .footer-section {

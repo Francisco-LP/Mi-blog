@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const contenido = document.getElementById("contenido");
   const hamburger = document.getElementById("hamburger");
@@ -20,11 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Manejar clics en enlaces del menú lateral
   document.querySelectorAll("#side-menu a").forEach(link => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
+      const seccion = link.dataset.seccion;
+      const href = link.getAttribute("href");
+
+      // Siempre cerrar el menú al hacer clic
       sideMenu.classList.remove("show");
 
-      const seccion = link.dataset.seccion;
       if (seccion) {
+        // Si el enlace tiene data-seccion → cargar contenido dinámico
+        e.preventDefault();
         fetch(`proyectos/${seccion}/index.html`)
           .then(res => res.ok ? res.text() : Promise.reject("Error"))
           .then(html => {
@@ -34,11 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
           .catch(() => {
             contenido.innerHTML = "<p>Error al cargar la sección.</p>";
           });
+      } else if (href.startsWith("#")) {
+        // Si el enlace tiene un ancla (#) → scroll suave
+        e.preventDefault();
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
       }
     });
   });
 
-  // Carga inicial
+  // Carga inicial del contenido
   fetch("proyectos/inicio/index.html")
     .then(res => res.ok ? res.text() : Promise.reject("Error"))
     .then(html => {
