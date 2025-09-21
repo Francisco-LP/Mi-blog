@@ -1,0 +1,97 @@
+:root {
+  --primary-color: #229377;     /* Verde esmeralda (para títulos, enlaces activos) */
+  --accent-color: #0ea5e9;      /* Azul claro (para botones, hover o detalles) */
+  --secondary-color: #4A31F5;   /* Puedes mantenerlo si lo usas puntualmente */
+  --tertiary-color: #0f172a;    /* Azul oscuro (secciones, sidebars) */
+
+  --dark-color: #000000;
+  --light-color: #0f172a;       /* Fondo principal o contenedores */
+  --text-color: #e2e8f0;        /* Texto principal (gris claro) */
+  --light-text: #94a3b8;        /* Texto secundario (gris más tenue) */ 
+}
+
+/*  Comandos linux  */
+.comandos-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.comandos-header h2 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.comandos-header p {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+#searchComandos {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.comandos-list h3 {
+  margin-top: 1.5rem;
+  color: var(--dark-color);
+}
+
+.comandos-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.comandos-list li {
+  background: #f7f7f7;
+  padding: 0.5rem 0.8rem;
+  margin: 0.3rem 0;
+  border-radius: 6px;
+  font-family: monospace;
+  color: var(--dark-color);
+}
+
+
+/* Estilo general para todos los <a> */
+/*
+a {
+  color: var(--primary-color);         
+  text-decoration: none;              
+  font-weight: 500;                   
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);          
+  border-bottom: 2px solid var(--accent-color); 
+}
+*/
+/* Cuando el link está activo/clicado */
+/*
+a:active {
+  color: #000;                         
+}
+*/
+.link-button {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover efecto */
+.link-button:hover {
+  background: var(--accent-color);
+  transform: translateY(-2px); /* se levanta un poquito */
+}

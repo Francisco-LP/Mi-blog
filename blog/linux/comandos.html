@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi terminal</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/linux/comandos_linux.css">
     <!-- <link rel="stylesheet" href="/css/general_style_project.css"/> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -60,69 +61,173 @@
   <main>
 
     <div class="container">
-      <h1 class="titulo-index">En construcción</h1>  
+      <h1 class="titulo-index">Linux / Comandos</h1>  
       <hr class="hr-habilities" />
     </div> 
-    <!--
-    <div class="container">
-      <h1 class="titulo-index">Linux</h1>  
-      <hr class="hr-habilities" />
-    </div> 
-    <section class="habilities-container" id="temas">
-  <div class="habilitiesCards-container">
 
-    <a href="/linux" class="habilitie-card">
-      <img src="/assets/imagenes/comandos.png" alt="Linux" />
-      <h4>Linux</h4>
-      <p>
-        Apuntes de comandos Linux.
-      </p>
-    </a>
+<!-- Sección Comandos Linux -->
+<section class="comandos-container" id="comandos-linux">
+  <div class="comandos-header">
+    <h2>📟 Comandos Linux</h2>
+    <p>
+      Apuntes de comandos Linux: desde los básicos de navegación, 
+      hasta herramientas para redes, procesos y administración. 
+    </p>
 
-    <a href="/programacion" class="habilitie-card">
-      <img src="/assets/imagenes/lenguajes.png" alt="Programación" />
-      <h4>Programación</h4>
-      <p>
-        Apuntes de programación: scripts en Bash y Python hasta pruebas con C++ y JavaScript.
-      </p>
-    </a>
+    <!-- Buscador -->
+    <input 
+      type="text" 
+      id="searchComandos" 
+      placeholder="🔎 Buscar comando..."
+      onkeyup="buscarComandos()" 
+    />
+  </div>
 
-    <a href="/redes" class="habilitie-card">
-      <img src="/assets/imagenes/redes.jpg" alt="Redes" />
-      <h4>Redes</h4>
-      <p>
-        Protocolos, configuraciones, herramientas y cómo entender mejor cómo viajan los datos.
-      </p>
-    </a>
+  <!-- Listado de comandos -->
+  <div class="comandos-list">
 
-    <a href="/git" class="habilitie-card">
-      <img src="/assets/imagenes/git.png" alt="Git" />
-      <h4>GIT</h4>
-      <p>
-        Lo que voy aprendiendo de Git: comandos básicos, ramas, errores comunes.
-      </p>
-    </a>
+    <h3>Superusuario</h3>
+    <ul>
+      <li><strong>sudo</strong>  Ejecuta con permisos de root</li>
+      <li><strong>su</strong>  Cambia al usuario root</li>
+    </ul>
 
-    <a href="/docker" class="habilitie-card">
-      <img src="/assets/imagenes/docker.png" alt="Docker" />
-      <h4>Docker</h4>
-      <p>
-        Mis apuntes de Docker: imágenes, contenedores, docker-compose y lo que necesito
-        para desplegar cosas rápido.
-      </p>
-    </a>
+    <h3>Navegación en el sistema de archivos</h3>
+    <ul>
+      <li><strong>pwd</strong>  Muestra la ruta actual</li>
+      <li><strong>ls</strong>  Lista archivos y directorios</li>
+      <li><strong>ls -l</strong>  Lista con detalles (permisos, tamaño, dueño)</li>
+      <li><strong>ls -a</strong>  Incluye archivos ocultos</li>
+      <li><strong>cd</strong>  Cambia de directorio</li>
+      <li><strong>cd ..</strong>  Sube un nivel</li>
+      <li><strong>cd ~</strong>  Va al home del usuario</li>
+    </ul>
 
-    <a href="/seguridad" class="habilitie-card">
-      <img src="/assets/imagenes/seguridad.jpg" alt="Seguridad" />
-      <h4>Seguridad</h4>
-      <p>
-        Notas de seguridad: ataques comunes, herramientas y buenas prácticas para proteger sistemas.
-      </p>
-    </a>
+    <h3>Gestión de archivos</h3>
+    <ul>
+      <li><strong>touch archivo.txt</strong> → Crea un archivo vacío</li>
+      <li><strong>mkdir carpeta</strong> → Crea un directorio</li>
+      <li><strong>cp origen destino</strong>  Copia archivos</li>
+      <li><strong>mv origen destino</strong>  Mueve archivos</li>
+      <li><strong>rm archivo</strong> → Elimina un archivo</li>
+      <li><strong>rm -r carpeta</strong> → Elimina carpeta con contenido</li>
+      <li><strong>rmdir o rm -r carpeta</strong> → Elimina carpeta vacía</li>
+    </ul>
+
+    <h3>Visualización y búsqueda de archivos</h3>
+    <ul>
+      <li><strong>cat archivo.txt</strong>  Muestra contenido completo</li>
+      <li><strong>less archivo.txt</strong>  Muestra contenido paginado</li>
+      <li><strong>head archivo.txt</strong>  Primeras 10 líneas</li>
+      <li><strong>tail archivo.txt</strong>  Últimas 10 líneas</li>
+      <li><strong>tail -f archivo.log</strong>  Sigue en vivo un log</li>
+      <li><strong>find /ruta -name archivo</strong>  Busca por nombre</li>
+      <li><strong>grep "texto" archivo.txt</strong>  Busca texto dentro de archivos</li>
+    </ul>
+
+    <h3>Usuarios y permisos</h3>
+    <ul>
+      <li><strong>whoami</strong>  Muestra el usuario actual</li>
+      <li><strong>id</strong>  Info del usuario (UID, grupos)</li>
+      <li><strong>adduser nombre</strong>  Crea un usuario</li>
+      <li><strong>passwd nombre</strong>  Cambia contraseña</li>
+      <li><strong>chmod {permiso} archivo</strong>  Cambia los permisos de un archivo. Para profundizar más en los permisos, pincha <a class="link-button" href="/blog/linux/permisos_usuarios.html"><strong>aquí</strong></a></li>
+      <li><strong>chown usuario:grupo archivo</strong>Cambia de dueño el archivo. Para profundizar más en los permisos, pincha <a class="link-button" href="/blog/linux/permisos_usuarios.html"><strong>aquí</strong></a></li>
+    </ul>
+
+    <h3>Procesos y sistema</h3>
+    <ul>
+      <li><strong>ps</strong>  Procesos en ejecución</li>
+      <li><strong>ps aux</strong>  Lista procesos</li>
+      <li><strong>top</strong>  Vista en tiempo real</li>
+      <li><strong>htop</strong>  Versión interactiva de top (si está instalado)</li>
+      <li><strong>kill PID</strong>  Termina un proceso</li>
+      <li><strong>uname -a</strong>  Info del kernel</li>
+      <li><strong>uptime</strong>  Tiempo encendido del sistema</li>
+      <li><strong>df -h</strong>  Espacio en disco</li>
+      <li><strong>du -sh carpeta</strong>  Tamaño de carpeta</li>
+      <li><strong>free -h</strong>  Memoria disponible</li>
+    </ul>
+
+    <h3>Gestión de paquetes y repositorios</h3>
+    <ul>
+      <!-- Fedora / RHEL -->
+      <p>RHEL / Fedora</p>
+      <li><strong>sudo dnf install paquete</strong> → Instalar paquete (Fedora/RHEL)</li>
+      <li><strong>sudo dnf remove paquete</strong> → Eliminar paquete</li>
+      <li><strong>sudo rpm -i archivo.rpm</strong> → Instalar paquete .rpm</li>
+      <li><strong>sudo rpm -e nombre</strong> → Eliminar paquete instalado con .rpm</li>
+      <li><strong>sudo dnf update</strong> → Actualizar sistema</li>
+      <li><strong>dnf search nombre</strong> → Buscar paquete en los repositorios (Fedora/RHEL)</li>
+      <li><strong>dnf info nombre</strong> → Mostrar información detallada</li>
+
+      <!-- Debian/Ubuntu -->
+      <p>Debian / Ubuntu</p>
+      <li><strong>sudo add-apt-repository ppa:nombre/ppa</strong> → Agregar repositorio (Debian/Ubuntu)</li>
+      <li><strong>sudo add-apt-repository --remove ppa:nombre/ppa</strong> → Eliminar repositorio</li>
+      <li><strong>sudo apt update && sudo apt upgrade</strong> → Actualizar sistema</li>
+      <li><strong>sudo apt install paquete</strong> → Instalar paquete</li>
+      <li><strong>sudo apt remove paquete</strong> → Eliminar paquete</li>
+      <li><strong>sudo dpkg -i archivo.deb</strong> → Instalar paquete .deb</li>
+      <li><strong>sudo dpkg -r nombre</strong> → Eliminar paquete instalado con .deb</li>
+      <li><strong>apt search nombre</strong> → Buscar paquete en los repositorios (Debian/Ubuntu)</li>
+      <li><strong>apt show nombre</strong> → Mostrar información detallada del paquete</li>
+
+      <!-- openSUSE -->
+      <p>openSUSE</p>
+      <li><strong>sudo zypper addrepo URL repositorio</strong> → Agregar repositorio (openSUSE)</li>
+      <li><strong>sudo zypper removerepo nombre</strong> → Eliminar repositorio</li>
+      <li><strong>sudo zypper refresh</strong> → Refrescar lista de repositorios</li>
+      <li><strong>sudo zypper install paquete</strong> → Instalar paquete</li>
+      <li><strong>sudo zypper remove paquete</strong> → Eliminar paquete</li>
+      <li><strong>zypper search nombre</strong> → Buscar paquete (openSUSE)</li>
+      <li><strong>zypper info nombre</strong> → Información detallada del paquete</li>
+
+      <!-- Arch Linux -->
+       <p>Arch Linux</p>
+      <li><strong>sudo pacman -Syu</strong> → Actualizar sistema (Arch)</li>
+      <li><strong>sudo pacman -S paquete</strong> → Instalar paquete</li>
+      <li><strong>sudo pacman -R paquete</strong> → Eliminar paquete</li>
+      <li><strong>sudo pacman -Ss nombre</strong> → Buscar paquete</li>
+      <li><strong>sudo pacman -U archivo.pkg.tar.zst</strong> → Instalar paquete local</li>
+      <li><strong>pacman -Ss nombre</strong> → Buscar paquete en repositorios (Arch)</li>
+      <li><strong>pacman -Si nombre</strong> → Información de un paquete</li>
+      <li><strong>pacman -Qs nombre</strong> → Buscar paquete ya instalado en el sistema</li>
+    </ul>
+
+
+    <h3>Redes</h3>
+    <ul>
+      <li><strong>ping 8.8.8.8</strong> → Verifica conexión</li>
+      <li><strong>curl http://sitio.com</strong>  Prueba una URL</li>
+      <li><strong>wget http://sitio.com/archivo</strong>  Descarga archivo</li>
+      <li><strong>ip a o ifconfig</strong>  Información de red</li>
+      <li><strong>netstat -tuln</strong>  Puertos abiertos</li> 
+      <li><strong>ss -tuln</strong>  Puertos abiertos (más moderno)</li>
+    </ul>
+
+    <h3>Compresión y archivos</h3>
+    <ul>
+      <li><strong>tar -cvf archivo.tar carpeta/</strong> Crear .tar</li>
+      <li><strong>tar -xvf archivo.tar</strong>  Extraer .tar</li>
+      <li><strong>tar -czvf archivo.tar.gz carpeta/</strong>  Crear .tar.gz</li>
+      <li><strong>tar -xzvf archivo.tar.gz</strong>  Extraer .tar.gz</li>
+      <li><strong>zip archivo.zip archivo</strong>  Crear zip</li>
+      <li><strong>unzip archivo.zip</strong>  Extraer zip</li>
+    </ul>
+
+    <h3>Otros útiles</h3>
+    <ul>
+      <li><strong>history</strong>  Ver historial de comandos</li>
+      <li><strong>clear</strong>  Limpia pantalla</li>
+      <li><strong>alias ll='ls -l'</strong> Crea alias</li>
+      <li><strong>date</strong>  Muestra fecha y hora</li>
+      <li><strong>cal</strong>  Muestra calendario</li>
+    </ul>
 
   </div>
 </section>
--->
+
   </main>
   <footer> 
     <div class="container">
@@ -146,6 +251,6 @@
     </div>
     </div>
   </footer>
-  <script src="js/index.js"></script>
+  <script src="/js/linux/comandos.js"></script>
 </body>
 </html>
